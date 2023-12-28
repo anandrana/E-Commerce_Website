@@ -1,0 +1,10 @@
+package com.ecommerce.website.service;
+
+import org.springframework.stereotype.Service;
+
+import com.ecommerce.website.grpc.CustomerRegisterServiceGrpc.CustomerRegisterServiceImplBase;
+
+@Service
+public class CustomerRegisterService extends CustomerRegisterServiceImplBase{
+    
+}

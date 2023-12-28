@@ -1,0 +1,29 @@
+package com.ecommerce.website.dto;
+
+import java.sql.Time;
+import java.sql.Timestamp;
+
+import jakarta.validation.constraints.NotEmpty;
+import jakarta.validation.constraints.NotNull;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+public class CustomerDTO {
+	
+	private String firstName;
+	private String lastName;
+	@NotNull
+	@NotEmpty
+	private String email;
+	private String mobile;
+	private AddessDTO address;
+	@NotNull
+	@NotEmpty
+	private String password;
+}

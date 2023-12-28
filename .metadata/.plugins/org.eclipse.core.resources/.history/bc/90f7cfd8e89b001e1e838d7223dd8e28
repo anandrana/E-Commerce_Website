@@ -1,0 +1,43 @@
+package com.ecommerce.website.service.impl;
+
+import java.sql.Date;
+import java.sql.Timestamp;
+import java.time.LocalDate;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ecommerce.website.constant.ResponseCodeConstant;
+import com.ecommerce.website.dto.CustomerDTO;
+import com.ecommerce.website.dto.ResponseDTO;
+import com.ecommerce.website.dto.ResponseDTOBuilder;
+import com.ecommerce.website.models.CustomerRegister;
+import com.ecommerce.website.repository.CustomerRepository;
+import com.ecommerce.website.service.CustomerService;
+import com.ecommerce.website.utils.DateUtility;
+
+import lombok.extern.slf4j.Slf4j;
+
+@Service
+@Slf4j
+public class CustomerServiceImpl implements CustomerService{
+
+	@Autowired
+	private CustomerRepository customerRepository;
+	
+	@Autowired
+	private ResponseDTOBuilder responseDTOBuilder;
+	
+	ModelMapper modelMapper = new ModelMapper();
+	@Override
+	public ResponseDTO signUp(CustomerDTO customerDTO) {
+		
+		CustomerRegister customerRegister = modelMapper.map(customerDTO, CustomerRegister.class);
+		customerRegister.setCreationTimestamp(DateUtility.localToTimeStamp());
+		CustomerRegister saveCustomer=customerRepository.save(customerRegister);
+		log.info("the saveCustomer value : {}",saveCustomer);
+		return responseDTOBuilder.build(ResponseCodeConstant.SUCCESS_CODE, saveCustomer);
+	}
+
+}

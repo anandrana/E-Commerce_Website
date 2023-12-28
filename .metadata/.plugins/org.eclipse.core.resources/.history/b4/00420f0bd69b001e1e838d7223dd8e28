@@ -1,0 +1,12 @@
+package com.ecommerce.website.models;
+
+public class CustomerRegister {
+
+	private Long customerId;
+	private String firstName;
+	private String lastName;
+	private String email;
+	private String mobile;
+	private String address;
+	
+}

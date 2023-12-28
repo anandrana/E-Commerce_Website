@@ -1,0 +1,39 @@
+package com.ecommerce.website;
+
+import java.io.IOException;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.context.annotation.Bean;
+
+import io.grpc.Server;
+import io.grpc.ServerBuilder;
+import lombok.extern.slf4j.Slf4j;
+
+@Slf4j
+@SpringBootApplication
+public class AccountRegistrationApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(AccountRegistrationApplication.class, args);
+	}
+	
+	@Bean
+	public void grpc(){
+		log.info("Starting Grpc server....");
+		Server server = ServerBuilder.forPort(9091)
+				.addService().build();
+		try{
+			server.start();
+		}catch (IOException e){
+			try {
+				server.awaitTermination();
+			} catch (InterruptedException ex) {
+				ex.printStackTrace();
+				log.info("exception occurs");
+				Thread.currentThread().interrupt();
+			}
+			e.printStackTrace();
+		}
+	}
+}

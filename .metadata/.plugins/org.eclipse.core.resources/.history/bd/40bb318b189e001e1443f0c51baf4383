@@ -1,0 +1,25 @@
+package com.ecommerce.website.dto;
+
+import javax.persistence.Column;
+import javax.persistence.EnumType;
+import javax.persistence.Enumerated;
+
+import com.ecommerce.website.enums.Categories;
+
+public class ItemDTO {
+	
+	@Enumerated(EnumType.STRING)
+	private Categories category;
+	
+	private String subCategory;
+	
+	@Column(name = "rating")
+	private Integer rating;
+	
+	@Column(name = "price")
+	private Long price;
+	
+	@Column(name="discount")
+	private Long discount;
+	// adding offer and add coupoun in farther business logic
+}

@@ -1,0 +1,13 @@
+package com.ecommerce.website.dto;
+
+import java.util.Map;
+
+import com.ecommerce.website.enums.NotificationChannel;
+
+public class NotificationDTO {
+
+	private String mobile;
+	private String email;
+	private Map<String, Object> additionalFields;
+	private NotificationChannel notificationChannel;
+}

@@ -1,0 +1,22 @@
+package com.ecommerce.website.dto;
+
+import jakarta.persistence.Embeddable;
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Data
+@Builder
+@NoArgsConstructor
+@AllArgsConstructor
+@Embeddable
+public class AddessDTO {
+
+	private String town_vill;
+	private String street;
+	private String pincode;
+	private String district;
+	private String state;
+	
+}

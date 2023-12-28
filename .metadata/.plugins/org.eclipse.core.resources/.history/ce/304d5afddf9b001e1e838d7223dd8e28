@@ -1,0 +1,33 @@
+package com.ecommerce.website.controller;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ecommerce.website.constant.ApiConstant;
+import com.ecommerce.website.dto.CustomerDTO;
+import com.ecommerce.website.dto.ResponseDTO;
+import com.ecommerce.website.service.CustomerService;
+
+import jakarta.validation.Valid;
+import lombok.extern.slf4j.Slf4j;
+
+@RestController
+@RequestMapping(ApiConstant.API_VERSIONING)
+@Slf4j
+public class CustomerController {
+	
+	@Autowired
+	private CustomerService customerService;
+	@PostMapping(ApiConstant.REGISTER)
+	public ResponseDTO signup(@Valid @RequestBody CustomerDTO customerDTO){
+		
+		log.info("the customerDto request value : {}",customerDTO);
+		ResponseDTO responseDTO=customerService.signUp(customerDTO);
+		log.info("the responseDTO : {}",responseDTO);
+		return responseDTO;
+	}
+}

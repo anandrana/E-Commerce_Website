@@ -1,0 +1,17 @@
+package com.ecommerce.website.models;
+
+import com.ecommerce.website.enums.Categories;
+import com.ecommerce.website.enums.SubCategories;
+
+public class Item {
+
+	private Long itemId;
+	private Categories category;
+	private String subCategory;
+	private Integer plusCart;
+	private Integer minusCart;
+	private Integer rating;
+	private Long price;
+	private Long discount;
+	// adding offer and add coupoun in farther business logic
+}

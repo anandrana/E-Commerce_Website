@@ -1,0 +1,5 @@
+package com.ecommerce.website.repository;
+
+public interface CustomerRepository {
+
+}

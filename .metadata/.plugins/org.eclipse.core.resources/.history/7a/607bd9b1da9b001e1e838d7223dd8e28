@@ -1,0 +1,5 @@
+package com.ecommerce.website.service;
+
+public interface CustomerService {
+
+}

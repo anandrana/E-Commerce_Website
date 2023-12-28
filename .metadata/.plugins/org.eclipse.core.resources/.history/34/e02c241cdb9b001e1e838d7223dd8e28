@@ -1,0 +1,10 @@
+package com.ecommerce.website.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.ecommerce.website.service.CustomerService;
+
+@Service
+public class CustomerServiceImpl implements CustomerService{
+
+}

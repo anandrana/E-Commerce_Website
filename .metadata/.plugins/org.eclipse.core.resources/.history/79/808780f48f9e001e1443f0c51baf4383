@@ -1,0 +1,34 @@
+package com.ecommerce.website.service.impl;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.ecommerce.website.constant.ResponseCodeConstant;
+import com.ecommerce.website.dto.ItemDTO;
+import com.ecommerce.website.dto.ResponseDTO;
+import com.ecommerce.website.dto.ResponseDTOBuilder;
+import com.ecommerce.website.models.Item;
+import com.ecommerce.website.repository.ItemRepository;
+import com.ecommerce.website.service.ItemService;
+
+@Service
+public class ItemServiceImpl implements ItemService{
+
+	@Autowired
+	private ItemRepository itemRepository;
+	
+	ModelMapper modelMapper=new ModelMapper();
+	
+	@Autowired
+	private ResponseDTOBuilder responseDTOBuilder;
+	
+	@Override
+	public ResponseDTO addItem(ItemDTO itemDTO) {
+		Item item=modelMapper.map(itemDTO, Item.class);
+		Item saveItem=itemRepository.save(item);
+		return responseDTOBuilder.build(ResponseCodeConstant.SUCCESS_CODE, saveItem);
+	}
+
+	
+}

@@ -1,0 +1,12 @@
+package com.ecommerce.website.controller;
+
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.ecommerce.website.constant.ApiConstant;
+
+@RestController
+@RequestMapping(ApiConstant.API_VERSIONING)
+public class ItemController {
+
+}

@@ -1,0 +1,19 @@
+package com.ecommerce.website.service.impl;
+
+import org.springframework.stereotype.Service;
+
+import com.ecommerce.website.dto.ItemDTO;
+import com.ecommerce.website.dto.ResponseDTO;
+import com.ecommerce.website.service.ItemService;
+
+@Service
+public class ItemServiceImpl implements ItemService{
+
+	@Override
+	public ResponseDTO addItem(ItemDTO itemDTO) {
+		
+		return null;
+	}
+
+	
+}

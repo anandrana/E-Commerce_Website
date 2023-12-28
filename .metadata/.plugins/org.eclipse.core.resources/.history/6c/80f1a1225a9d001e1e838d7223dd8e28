@@ -1,0 +1,39 @@
+package com.ecommerce.website.models;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.SequenceGenerator;
+import javax.persistence.Table;
+
+import com.ecommerce.website.enums.Categories;
+
+import lombok.AllArgsConstructor;
+import lombok.Builder;
+import lombok.Data;
+import lombok.NoArgsConstructor;
+
+@Entity
+@Data
+@NoArgsConstructor
+@AllArgsConstructor
+@Builder
+@Table(name = "items")
+public class Item {
+
+	@Id
+	@GeneratedValue(strategy = GenerationType.SEQUENCE,generator = "id_Sequence")
+	@SequenceGenerator(name = "id_Sequence",sequenceName = "itemId_seq")
+	@Column(name = "item_Id")
+	private Long itemId;
+	private Categories category;
+	private String subCategory;
+	private Integer plusCart;
+	private Integer minusCart;
+	private Integer rating;
+	private Long price;
+	private Long discount;
+	// adding offer and add coupoun in farther business logic
+}

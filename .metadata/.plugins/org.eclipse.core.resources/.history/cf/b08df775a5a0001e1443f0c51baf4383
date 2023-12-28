@@ -1,0 +1,25 @@
+syntax = "proto3";
+
+option java_package = "com.ecommerce.website.grpc";
+
+message CustomerRequest{
+	int64 mobile=1;
+}
+
+message CustomerRegister{
+	int64 customerId = 1;
+	String firstName = 2;
+	String lastName = 3;
+	String email = 4;
+	String mobile = 5;
+	String address = 6;
+	String password = 7;
+}
+
+message CustomerRegisterResponse{
+	repeated CustomerRegister customerRegister = 1;
+}
+
+service CustomerRegisterService{
+	rpc fetchCustomers(CustomerRequest) returns (CustomerRegisterResponse);
+}

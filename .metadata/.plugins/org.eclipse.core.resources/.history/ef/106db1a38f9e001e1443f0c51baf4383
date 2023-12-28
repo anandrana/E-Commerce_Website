@@ -1,0 +1,11 @@
+package com.ecommerce.website.service;
+
+import com.ecommerce.website.dto.ItemDTO;
+import com.ecommerce.website.dto.ResponseDTO;
+import com.ecommerce.website.dto.UpdateRequestDTO;
+
+public interface ItemService {
+
+	public ResponseDTO addItem(ItemDTO itemDTO);
+
+}
